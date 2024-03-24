@@ -1,0 +1,4 @@
+관리자 페이지 제작 폴더입니다.
+
+github push - admin branch
+master push 금지

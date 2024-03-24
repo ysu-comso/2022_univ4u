@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매출관리</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <div class="manage_main">
+      <%-include('sidebar.ejs') %>
+        <div class="header">
+          <div class="header_box">
+            <a href="/admin/logout" class="logout_btn">로그아웃</a>
+            <span class="header_text">Lemon Tree</span> 
+          </div>      
+        </div>
+        <%-include('menubar.ejs') %>
+        <div class="main">
+          <div class="sale_table">
+            <div class="sale_search">
+              <span class="sale_search_text">기간조회</span>
+              <form action="/admin/sale_manage/search" method="get" id="searchForm">
+                <input type="date" name="startDate" id="startDateInput" required> ~
+                <input type="date" name="endDate" id="endDateInput" required>
+              </form>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" id="searchIcon">
+                <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <table class="table a">
+              <thead class="table_content a" style="background: #E9EAEC;">   
+                <tr class="row_top">
+                    <th  class="row_text name_client"></th>
+                    <th  class="row_text number_client">건수</th>
+                    <th  class="row_text dob">총매출</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr class="row">
+                    <td class="row_text name_client">합계</td>
+                    <td class="row_text number_client"><%= totalItems %>회</td>
+                    <td class="row_text dob"><%= total_price %>원</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <table class="table a">
+            <thead class="table_content a">   
+              <tr class="row_top">
+                  <th  class="row_text name_client">No.</th>
+                  <th  class="row_text number_client">결제일자</th>
+                  <th  class="row_text dob">프로그램</th>
+                  <th  class="row_text gender_client">결제금액</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% sales.forEach((sale, index) => { %>
+                <tr class="row <%= index % 2 === 0 ? 'a' : 'b' %>">
+                  <td class="row_text name_client"><%= sale.id %></td>
+                  <td class="row_text number_client"><%= formatDateString(sale.sale_date) %></td>
+                  <td class="row_text dob"><%= sale.prog_name %></td>
+                  <td class="row_text gender_client"><%= sale.price %>원</td>
+                </tr>
+              <% }); %>
+              
+              <% function formatDateString(date) {
+                   if (date instanceof Date) {
+                     // 날짜 객체인 경우 'yyyy-mm-dd' 형식으로 형식화
+                     return date.getFullYear() + '-' + pad((date.getMonth() + 1), 2) + '-' + pad(date.getDate(), 2);
+                   } else {
+                     // 문자열인 경우에는 그대로 반환
+                     return date;
+                   }
+                 }
+              
+                 function pad(number, length) {
+                   // 숫자를 지정한 자릿수로 패딩
+                   return ('0000' + number).slice(-length);
+                 }
+              %>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <ul class="pagination-list">
+                <% for (let page = 1; page <= totalPages; page++) { %>
+                    <li class="pagination-item">
+                        <a href="/admin/sale_manage?page=<%= page %>" class="pagination-link <%= encodeURIComponent(page) === currentPage ? 'active' : '' %>"><%= page %></a>
+                    </li>
+                <% } %>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <script src="/sale_manage_script.js"></script>
+</body>
+</html>

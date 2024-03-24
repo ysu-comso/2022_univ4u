@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약 관리</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css"> 
+</head>
+<body>
+    <div class="manage_main">
+      <%-include('sidebar.ejs') %>
+        <div class="header">
+          <div class="header_box">
+            <a href="/admin/logout" class="logout_btn">로그아웃</a>
+            <span class="header_text">Lemon Tree</span> 
+          </div>
+          <div class="search-box" >
+            <form action="/admin/reservation_manage/search?reserv_status=<%= reserv_status %>" method="get" style="display: flex;justify-content: space-between; min-width: 50px;" id="searchForm2">
+              <input type="text" placeholder="이름 또는 번호 검색" name="searchData" class="searchInput" onkeydown="searchOnEnterTablet(event)">
+              <input type="hidden" name="reserv_status" value="<%= reserv_status %>" class="reserv_status">                    
+            </form>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="none" id="searchIcon2">
+              <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>       
+        </div>
+        <%-include('menubar.ejs') %>
+        <div class="main">
+          <div class="sale_search">
+            <a href="/admin/reservation_manage?reserv_status=예약대기" class="top_btn <%= reserv_status === '예약대기' ? 'active' : '' %>">예약대기</a>
+            <a href="/admin/reservation_manage?reserv_status=예약확정" class="top_btn <%= reserv_status === '예약확정' ? 'active' : '' %>">예약확정</a>
+            <a href="/admin/reservation_manage?reserv_status=취소완료" class="top_btn <%= reserv_status === '취소완료' ? 'active' : '' %>">예약취소</a>
+            <a href="/admin/reservation_manage?reserv_status=결제완료" class="top_btn <%= reserv_status === '결제완료' ? 'active' : '' %>">결제완료</a>
+          </div>
+          <div class="table_title">
+            <span class="table_title_text">예약관리</span>
+            <div class="search-box" >
+              <form action="/admin/reservation_manage/search?reserv_status=<%= reserv_status %>" method="get" style="display: flex;justify-content: space-between; min-width: 380px;" id="searchForm">
+                <input type="text" placeholder="이름 또는 번호 검색" name="searchData" class="searchInput" onkeydown="searchOnEnter(event)">
+                <input type="hidden" name="reserv_status" value="<%= reserv_status %>" class="reserv_status">                    
+              </form>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="none" id="searchIcon">
+                <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </div>
+          </div>
+          <table class="table a">
+              <thead class="table_content a">
+                <tr class="row_top">
+                    <th  class="row_text name">이름</th>
+                    <th  class="row_text number">휴대폰 번호</th>
+                    <th  class="row_text gender">성별</th>
+                    <th  class="row_text std">재학생</th>
+                    <th  class="row_text prog">프로그램</th>
+                    <th  class="row_text count">횟수</th>
+                    <th  class="row_text note">비고</th>
+                    <th  class="row_text date">예약 날짜</th>
+                    <th  class="row_text time">예약상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% reservations.forEach((reservation, index) => { %>
+                <tr class="row <%= index % 2 === 0 ? 'a' : 'b' %>">
+                  <td  class="row_text name"><%=reservation.name %></td>
+                  <td  class="row_text number"><%=reservation.phone %></td>
+                  <td  class="row_text gender"><%=reservation.gender %></td>
+                  <td  class="row_text std"><%=reservation.std %></td>
+                  <td  class="row_text prog"><%=reservation.prog_name %></td>
+                  <td  class="row_text prog_time" style="display: none;"><%=reservation.prog_time %></td>
+                  <td  class="row_text count"><%=reservation.remain_count %></td>
+                  <td  class="row_text total_count" style="display: none;"><%=reservation.total_count %></td>
+                  <td  class="row_text note"><%=reservation.note %></td>
+                  <td  class="row_text date"><%=reservation.reservation_date %>/<%=reservation.reservation_time %></td>
+                  <td  class="row_text time"><%=reservation.reservation_status %></td>
+                  <td  class="row_text price" style="display: none;"><%=reservation.price %></td>
+                  <td  class="row_text id" style="display: none;"><%=reservation.id %></td>
+                  <td  class="row_text client_id" style="display: none;"><%=reservation.client_id %></td>
+                  <td  class="row_text add_date" style="display: none;"></td>
+                  <td  class="row_text reservation_id" style="display: none;"><%=reservation.reservation_id %></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <div class="pagination">
+                <ul class="pagination-list">
+                    <% for (let page = 1; page <= totalPages; page++) { %>
+                        <li class="pagination-item">
+                            <a href="/admin/reservation_manage/search?page=<%= page %>&searchData=<%= encodeURIComponent(searchData) %>&reserv_status=<%= encodeURIComponent(reserv_status) %>" class="pagination-link <%= encodeURIComponent(page) === currentPage ? 'active' : '' %>"><%= page %></a>
+                        </li>
+                    <% } %>
+                </ul>                
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--모달-->
+    <div class="modal_back">
+      <div class="modal">
+        <div class="detail info_modal">
+          <div class="modal_header">
+            <div class="title_box">
+              <span class="modal_header_title">예약 상세정보</span>
+              <span class="modal_header_date"></span>
+            </div>
+            <div class="confirm_btn">
+              <span class="confirm_btn_text" id="confirm_btn">확정</span>
+            </div>
+          </div>
+          <div class="modal_main">
+            <input type="hidden" name="id" class="inputbox id">
+            <input type="hidden" name="client_id" class="inputbox client_id">
+            <input type="hidden" name="reservation_status" class="inputbox reservation_status">
+            <input type="hidden" name="reservation_id" class="inputbox reservation_id">
+            <div class="client info">
+              <span class="client info_title">예약자 정보</span>
+              <div class="info_box name">
+                <span class="box_name">이름</span>
+                <input type="text" name="name" class="inputbox name" readonly>
+              </div>
+              <div class="info_box number">
+                <span class="box_name">번호</span>
+                <input type="text" name="phone" class="inputbox number" readonly>
+              </div>
+              <div class="info_box gender">
+                <span class="box_name">성별</span>
+                <input type="text" name="gender" class="inputbox gender" readonly>
+              </div>
+              <div class="info_box note">
+                <span class= "box_name">비고</span>
+                <textarea name="note" class="inputbox note"></textarea>
+              </div>
+            </div>
+            <div class="reserv info">
+              <span class="reserv info_title">예약 정보</span>
+              <div class="info_box date">
+                <span class="box_name">예약날짜</span>
+                <input type="text" name="reservation_date" class="inputbox date" style="border-right: solid 1px #E9EAEC;" readonly>
+                <input type="text" name="reservation_time" class="inputbox time" readonly>
+              </div>
+              <div class="info_box prog">
+                <span class="box_name">프로그램</span>
+                <input type="text" name="prog_name" class="inputbox prog" readonly>
+                <input type="hidden" name="prog_time" class="inputbox prog_time">
+              </div>
+              <span class="fare info_title">요금 정보</span>
+              <div class="info_box fare">
+                <div class="fare_content">
+                  <span class="fare_box">횟수</span>
+                  <input type="text" name="remain_count" class="inputbox count" readonly>
+                  <input type="hidden" name="total_count" class="inputbox total_count" readonly>
+                </div>
+                <div class="fare_content">
+                  <span class="fare_box">재학생</span>
+                  <input type="text" name="std" class="inputbox std">
+                </div>
+                <div class="fare_content">
+                  <span class="fare_box">금액</span>
+                  <input type="text" name="price" class="inputbox price">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal_footer">
+            <span class="btn modify" id="modify_btn" style="display: none;">수정</span>
+            <span class="btn pay" id="pay_btn">결제</span>
+            <span class="btn cancel" id="cancel_btn">예약취소</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--모달-->
+    <script src="/reserv_manage_script.js"></script>
+</body>
+</html>

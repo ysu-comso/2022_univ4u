@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 목록</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="manage_main">
+      <%-include('sidebar.ejs') %>
+        <div class="header">
+          <div class="header_box">
+            <a href="/admin/logout" class="logout_btn">로그아웃</a>
+            <span class="header_text">Lemon Tree</span> 
+          </div>
+          <div class="search-box">
+            <form action="/admin/client_list/search" method="get" style="display: flex;justify-content: space-between; min-width: 50px;"id="searchForm2">
+              <input type="text" placeholder="이름 또는 번호 검색" name="searchData" class="searchInput" onkeydown="tablet_searchOnEnter(event)">
+            </form>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" id="searchIcon2">
+              <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>        
+        </div>
+        <%-include('menubar.ejs') %>
+        <div class="main">
+          <div class="table_title">
+            <span class="table_title_text">회원목록</span>
+            <div class="search-box">
+              <form action="/admin/client_list/search" method="get" style="display: flex;justify-content: space-between; min-width: 380px;"id="searchForm">
+                <input type="text" placeholder="이름 또는 번호 검색" name="searchData" class="searchInput" onkeydown="searchOnEnter(event)">
+              </form>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" id="searchIcon">
+                <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </div>
+          </div>
+          <table class="table a">
+            <thead class="table_content a">   
+              <tr class="row_top">
+                <th  class="row_text num_client">회원번호</th>
+                <th  class="row_text name_client">이름</th>
+                <th  class="row_text number_client">휴대폰 번호</th>
+                <th  class="row_text dob">생년월일</th>
+                <th  class="row_text gender_client">성별</th>
+                <th  class="row_text std_client">재학생</th>
+                <th  class="row_text agree">마케팅 동의</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% clients.forEach((client, index) => { %>
+              <tr class="row <%= index % 2 === 0 ? 'a' : 'b' %>">
+                <td  class="row_text num_client"><%=client.id%></td>
+                <td  class="row_text name_client"><%=client.name%></td>
+                <td  class="row_text number_client"><%=client.phone%></td>
+                <td  class="row_text dob"><%=client.birth%></td>
+                <td  class="row_text gender_client"><%=client.gender%></td>
+                <td  class="row_text std_client"><%=client.std%></td>
+                <td  class="row_text agree"><%=client.consent%></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <ul class="pagination-list">
+                <% for (let page = 1; page <= totalPages; page++) { %>
+                    <li class="pagination-item">
+                        <a href="/admin/client_list/search?page=<%= page %>&searchData=<%= encodeURIComponent(searchData) %>" class="pagination-link <%= encodeURIComponent(page) === currentPage ? 'active' : '' %>"><%= page %></a>
+                    </li>
+                <% } %>
+            </ul>                
+        </div>
+        </div>
+    </div>
+    <div class="modal_back">
+      <div class="modal">
+        <div class="detail info_modal">
+          <div class="modal_header">
+            <span class="modal_header_title">상세정보</span>
+          </div>
+          <div class="modal_main">
+            <div class="client info">
+              <span class="client info_title">회원정보</span>
+              <div class="info_box name">
+                <span class="box_name">이름</span>
+                <input type="text" name="name" class="inputbox name" readonly>
+              </div>
+              <div class="info_box number">
+                <span class="box_name">번호</span>
+                <input type="text" name="phone" class="inputbox number" readonly>
+              </div>
+              <div class="info_box gender">
+                <span class="box_name">성별</span>
+                <input type="text" name="gender" class="inputbox gender" readonly>
+              </div>
+              <div class="info_box dob">
+                <span class= "box_name">생년월일</span>
+                <input type="text" name="birth" class="inputbox birth" readonly>
+              </div>
+            </div>
+            <div class="reserv info">
+              <span class="reserv info_title">구매 정보</span>
+              <div class="reserv_box date" style="height: 100%;">
+                <table style="width: 100%;">
+                  <thead>
+                    <tr class="reserv_row">
+                      <th class="row_text reserv">프로그램</th>
+                      <th class="row_text reserv">잔여횟수</th>
+                      <th class="row_text reserv">총횟수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td><!--prog_name-->
+                      <td></td><!--remain_count-->
+                      <td></td><!--total_count-->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="/client_list_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매출관리</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <div class="manage_main">
+      <%-include('sidebar.ejs') %>
+        <div class="header">
+          <div class="header_box">
+            <a href="/admin/logout" class="logout_btn">로그아웃</a>
+            <span class="header_text">Lemon Tree</span> 
+          </div>      
+        </div>
+        <%-include('menubar.ejs') %>
+        <div class="main">
+            <div class="reserv_main a">
+                <div class="table">
+                    <div class="table_content a">
+                        <div class="table_title">
+                            <span class="table_title_text">시간/인원 관리</span>
+                            <div class="manage_box">
+                              <div class="prog_add">시간/인원 추가</div>
+                            </div>
+                        </div>
+                        <div class="row_top prog">
+                            <span class="row_text prog">No.</span>
+                            <span  class="row_text time">시간</span>
+                            <span  class="row_text count">인원수</span>
+                            <div class="btn_box">
+                              <span  class="row_text modify"></span>
+                            </div>
+                        </div>
+                        <% timeCust.forEach((timeCust, index) => { %>
+                          <div class="row <%= index % 2 === 0 ? 'a' : 'b' %> prog">
+                            <span class="row_text prog"><%= timeCust.id %></span>
+                            <span class="row_text time"><%= timeCust.time %></span>
+                            <span class="row_text count"><%= timeCust.limit_customer %></span>
+                            <div class="btn_box">
+                              <span class="row_text modify">관리</span>
+                            </div>
+                          </div>
+                        <% }); %>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <!--모달-->
+    <div class="modal_back">
+        <div class="modal">
+          <form method="POST" class="progForm" action="./timeCust/add_timeCust_post">
+            <input type="hidden" name="id" class="inputbox id" value="1">
+            <div class="modal_header">
+              <span class="modal_header_title">시간/인원</span>
+            </div>
+              <div class="prog info">
+                <div class="info_box prog">
+                  <span class="box_name prog">시</span>
+                  <input type="text" name="prog_name" class="inputbox prog" placeholder="시간 입력">
+                </div>
+                <div class="info_box time">
+                  <span class="box_name prog">분</span>
+                  <input type="text" name="prog_time" class="inputbox time" placeholder="분 입력">
+                </div>
+                <div class="info_box number">
+                  <span class="box_name prog">인원수</span>
+                  <input type="text" name="prog_count" class="inputbox number" placeholder="숫자만 입력">
+                </div>
+              </div>
+            <div class="modal_footer">
+              <span class="btn check" onclick="submitForm()">확인</span>
+              <span class="btn cancel" onclick="deleteBtn()">삭제</span>
+            </div>
+        </form>
+        </div>
+      </div>
+      <!--모달-->
+    <script src="/time_cust_script.js"></script>
+</body>
+</html>
