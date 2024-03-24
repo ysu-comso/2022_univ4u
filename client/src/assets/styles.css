@@ -1,0 +1,1255 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap');
+
+/* HEADER START */
+.header {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    padding: 20px;
+    background-color: #FFFDAC;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    padding: 0 5px;
+
+    font-family: 'DM Serif Display';
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #1C1C1C;
+}
+
+.header-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+/* HEADER END */
+
+
+
+/* MAIN START */
+.main-container {
+    padding: 10px;
+}
+
+.info-container {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.date-txt {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.info-txt {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.discount-txt {
+    color: #EE4C69;
+    font-family: 'DM Sans';
+    font-size: 10px;
+    font-weight: 500;
+    text-align: right;
+}
+
+.program-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.program-content {
+    width: 98%;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 2px 2px 4px 0px rgba(233, 234, 236, 0.25);
+    padding: 15px;
+    margin: 8px 0;
+}
+
+.program-info-container {
+    display: flex;
+    padding-left: 5px;
+    align-items: flex-end;
+}
+
+.program-name {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.program-time {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.solid {
+    width: auto;
+    height: 1px;
+    background-color: #111;
+    margin: 10px 0;
+}
+
+.program-price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.program-number {
+    width: 20%;
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
+}
+
+.program-price-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.program-price-ko {
+    color: #111;
+    text-align: center;
+    font-family: 'DM Sans';
+    font-size: 11px;
+    font-weight: 400;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.program-price-num {
+    color: #111;
+    text-align: center;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.reservation-container {
+    display: flex;
+    justify-content: center;
+}
+
+.reservation-btn {
+    width: 90%;
+    height: 60px;
+    border-radius: 15px;
+    border-style: none;
+    background: #FFFDAC;
+    position: absolute;
+    bottom: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservation-btn:active {
+    width: 90%;
+    height: 60px;
+    border-radius: 15px;
+    border-style: none;
+    background: #E9EAEC;
+    position: absolute;
+    bottom: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservation-btn-txt {
+    color: #515151;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 280px) and (max-width : 354px) {
+    .program-content {
+        padding: 15px 8px;
+    }
+
+    .program-number {
+        font-size: 13px;
+        padding-right: 0;
+    }
+
+    .program-price-ko {
+        margin-left: 8px;
+        font-size: 10px;
+    }
+
+    .program-price-num {
+        font-size: 12px;
+    }
+}
+
+/* MAIN END */
+
+
+
+
+/* SIGNUP START */
+.signup-container {
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.signup-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.signup-subtitle {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.signup-input {
+    margin-bottom: 20px;
+    border: 1px solid #E9EAEC;
+    border-radius: 15px;
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+    position: relative;
+}
+
+.signup-input:focus {
+    outline: none;
+    border-color: #1C1C1C;
+}
+
+.signup-clear-input {
+    position: absolute;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.signup-blind-passwd {
+    position: absolute;
+    right: 5px;
+    transform: translateY(-40%);
+    cursor: pointer;
+}
+
+.input-with-clear {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+
+/* 입력 필드가 포커스될 때 X 아이콘 표시 */
+.signup-input:focus+.signup-clear-input {
+    display: block;
+}
+
+.signup-input::placeholder {
+    color: #B5B5B5;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signup-confirm-active {
+    padding: 20px;
+    border: 1px solid #FFEB54;
+    border-radius: 15px;
+    background: #FFEB54;
+    color: #111;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    width: 100%;
+}
+
+.signup-confirm-inactive {
+    padding: 20px;
+    border: 1px solid #E9EAEC;
+    border-radius: 15px;
+    background: #E9EAEC;
+    color: #ffffff;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    width: 100%;
+}
+
+.signup-buttonContainer {
+    margin-bottom: 20px;
+}
+
+.signup-buttonContents {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signup-button-selected {
+    font-size: 20px;
+    color: #515151;
+    background-color: #FFFDAC;
+    padding: 10px 30px;
+    border: 1px solid #E9EAEC;
+    border-radius: 18px;
+    width: 47%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signup-button-unselected {
+    font-size: 20px;
+    color: #B5B5B5;
+    background-color: #FFFFFF;
+    padding: 10px 30px;
+    border: 1px solid #E9EAEC;
+    border-radius: 18px;
+    width: 47%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signup-terms {
+    border: 1px solid #E9EAEC;
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 40px;
+}
+
+.signup-terms-contents {
+    padding: 20px;
+}
+
+.check__line {
+    margin-bottom: 10px;
+}
+
+.check__line input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+.check__line input[type="checkbox"]+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+}
+
+.check__line input[type="checkbox"]+label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background: url(./signup_unchecked.png)no-repeat;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* 보여질 부분의 스타일을 추가하면 된다. */
+.check__line input[type="checkbox"]:checked+label:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url(./signup_checked.png)no-repeat;
+    background-position: center center;
+    border-radius: 5px;
+}
+
+.check__line input[type="checkbox"]+label span {
+    font-weight: 700 !important;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -1px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.signup-littleTitle {
+    font-size: 14px !important;
+    color: #B5B5B5;
+}
+
+.signup-input-error {
+    margin-bottom: 20px;
+    border: 1px solid #EE4C69;
+    border-radius: 15px;
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+    position: relative;
+}
+
+.signup-input-error:focus {
+    outline: none;
+    border-color: #EE4C69;
+}
+
+
+
+.signup-input-errorMessage {
+    position: absolute;
+    bottom: 0px;
+    font-size: 12px;
+    color: #EE4C69;
+}
+
+
+.signup-input-errorMessage1 {
+    display: block;
+    font-size: 12px;
+    color: #EE4C69;
+}
+/* SIGNUP END */
+
+
+
+
+/* MENUBAR START */
+.menubar-container {
+    padding: 20px;
+}
+
+.menubar-close {
+    padding: 20px;
+    text-align: end;
+    cursor: pointer;
+}
+
+.menubar-close-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.menubar-header {
+    margin-bottom: 100px;
+}
+
+.menubar-header-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+.menubar-menu-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.menubar-contour {
+    width: auto;
+    height: 1px;
+    background-color: #111;
+    margin: 10px 0;
+}
+
+.menubar-menu-list {
+    /* padding:10px; */
+}
+
+.menubar-menu-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 30px 5px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menubar-menu-icon {
+    width: 17px;
+    height: 17px;
+    align-self: center;
+}
+
+.menu-slide {
+    position: absolute;
+    top: 0;
+    right: -70%;
+    /* 슬라이드가 오른쪽에서 시작하도록 설정 */
+    width: 70%;
+    /* 슬라이드 너비 */
+    height: 100%;
+    /* 슬라이드 높이 */
+    background: linear-gradient(180deg, #FFFDAC 0%, #FFF 27.6%);
+    transition: right 0.5s ease 0s;
+    z-index: 9999;
+    /* 다른 요소 위에 오도록 설정 */
+}
+
+.menu-slide.open {
+    right: 0;
+    /* 슬라이드가 나타남 */
+}
+/* MENUBAR END */
+
+
+
+/* MYTREE START */
+.myTree-main-container {
+    padding: 20px;
+}
+
+.myTree-main-title {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.myTree-container {
+    padding: 0 15px;
+    margin-bottom: 55px;
+}
+
+.myTree-title {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.myTree-content {
+    width: 100%;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 2px 2px 4px 0px rgba(217, 217, 217, 0.25);
+    padding: 15px;
+    margin: 7px 0;
+}
+
+.myTree-inner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    border: none;
+}
+
+.myTree-program {
+    display: flex;
+    align-items: baseline;
+}
+
+.myTree-program-name {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.myTree-right-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.myTree-count {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 3px;
+}
+
+.myTree-program-time {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.myTree-program-date {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.myTree-program-date-time {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 10px;
+}
+
+.myTree-btn-cancle {
+    border-radius: 20px;
+    border: 1px solid #EE4C69;
+    background: #EE4C69;
+    box-shadow: 0px 4px 4px 0px rgba(217, 217, 217, 0.25);
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 7px;
+    margin-left: 12px;
+
+}
+
+.myTree-btn-reserv {
+    border-radius: 20px;
+    border: 1px solid #0d6efd;
+    background: #0d6efd;
+    box-shadow: 0px 4px 4px 0px rgba(217, 217, 217, 0.25);
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 7px;
+    margin-left: 12px;
+}
+
+.myTree-status-list {
+    border-radius: 20px;
+    /* border: 1px solid rgba(217, 217, 217, 0.5); */
+    /* box-shadow: 0px 4px 4px 0px rgba(217, 217, 217, 0.2); */
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 12px !important;
+    font-weight: 700;
+    padding: 3px 7px;
+}
+
+.myTree-status {
+    color: #111;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.myTree-status-cancle {
+    color: #EE4C69;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.myTree-status-reserv {
+    color: #4646469c;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.dash-g {
+    border-top: 1px dotted #D9D9D9;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.dash-b {
+    border-top: 1px dotted #1C1C1C;
+    width: 100%;
+    margin: 30px 0;
+}
+
+@media screen and (min-width: 280px) and (max-width : 354px) {
+    .myTree-main-container {
+        padding: 0px;
+    }
+    .myTree-content{
+        padding: 10px;
+    }
+    .myTree-program-name {
+        font-size: 11px
+    }
+    .myTree-program-time {
+        font-size: 9px
+    }
+    .myTree-count {
+        font-size: 10px;
+        padding: 0
+    }
+    .myTree-btn-reserv, .myTree-btn-cancle {
+        margin-left: 2px;
+    }
+    .myTree-program-date {
+        font-size: 13px;
+    }
+    .myTree-program-date-time {
+        margin: 0 5px;
+        font-size: 10px;
+    }
+}
+/* MYTREE END */
+
+
+/* MYTREE MODAL START */
+.myTree-modal-header {
+    background: '#FFFDAC' !important;
+    width: 100%;
+}
+
+.myTree-modal-title {
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.myTree-modal-confirm-title {
+    text-align: center;
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.myTree-modal-content {
+    margin: 30px 0;
+}
+
+.myTree-modal-inner-content {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    align-items: center;
+}
+
+.myTree-modal-inner-txt {
+    width: 100px;
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.myTree-modal-inner-view {
+    display: flex;
+    align-items: end;
+}
+
+.small-txt {
+    font-size: 12px;
+    margin: 0 2px;
+}
+
+.myTree-modal-inner-data {
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.myTree-modal-empty {
+    height: 50px;
+}
+
+.myTree-modal-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.myTree-modal-btn {
+    width: 135px;
+    height: 50px;
+    border-radius: 20px;
+    border: 1px solid #E9EAEC;
+    color: #515151;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.myTree-modal-link {
+    text-decoration: none;
+    color: #515151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-right {
+    background: #FFFDAC;
+}
+
+.btn-wrong {
+    background: #fff;
+}
+
+.btn-pull {
+    width: 100%;
+}
+
+.title-view {
+    margin: 10px 0;
+}
+
+.view {
+    height: 100px;
+}
+
+.line {
+    border-top: 1px solid #D9D9D9;
+}
+.line2 {
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.myTree-empty-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 30px 0;
+}
+
+.myTree-empty-txt {
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+
+
+/* LOGIN START */
+.login-back-img {
+    background: url('../../public/assets/img_login_back.png'), lightgray 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.login-container {
+    padding: 40% 25px;
+}
+
+.login-title {
+    color: #1C1C1C;
+    font-family: 'DM Serif Display';
+    font-size: 36px;
+    font-weight: 400;
+    margin-top: 20px
+}
+
+.login-content {
+    margin-top: 35%;
+}
+
+.login-input-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.login-input {
+    margin-bottom: 20px;
+    border: 1px solid #E9EAEC;
+    border-radius: 20px;
+    height: 55px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #1C1C1C;
+}
+
+.login-input::placeholder {
+    color: #B5B5B5;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.login-input:invalid {
+    border: 1px solid #EE4C69;
+}
+
+.login-btn-inactive {
+    width: 100%;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+    background-color: #E9EAEC;
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    cursor: default !important;
+}
+
+.login-btn-active {
+    width: 100%;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FFFDAC;
+    color: #515151;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    cursor: pointer !important;
+}
+
+.login-btn-active:active {
+    background-color: #FFEB54;
+}
+
+.login-btn-active:disabled {
+    background-color: #E9EAEC;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.login-signUp {
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.login-signUp:active {
+    color: #848383;
+}
+
+@media screen and (min-width: 280px) and (max-width : 354px) {
+    .login-container {
+        padding: 40% 14px;
+    }
+
+    .login-input {
+        border-radius: 15px;
+        height: 50px;
+        padding: 0 15px;
+    }
+}
+/* LOGIN END */
+
+
+
+/* PHONENUM CHANGE START */
+.phoneNumChange-container {
+    padding: 30px;
+}
+
+.mypage-confirm-active {
+    position: fixed;
+    max-width: 440px;
+    bottom: 50px;
+    padding: 20px;
+    border: 1px solid #FFFDAC;
+    border-radius: 15px;
+    background: #FFFDAC;
+    color: #111;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    width: 85vw;
+}
+
+.mypage-confirm-inactive {
+    position: fixed;
+    max-width: 440px;
+    bottom: 50px;
+    padding: 20px;
+    border: 1px solid #E9EAEC;
+    border-radius: 15px;
+    background: #E9EAEC;
+    color: #ffffff;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    width: 85vw;
+}
+/* PHONENUM CHANGE END */
+
+
+
+/* PASSWORDCHANGE START */
+.passwordChange-container {
+    padding: 30px;
+}
+/* PASSWORDCHANGE END */
+
+
+/* RESERVATION START */
+
+.reservation-category-container {
+    display: flex;
+    align-items: flex-end;
+    background-color: white;
+    padding:10px;
+    border-top: 1px solid #D9D9D9;
+    /* border-bottom: 1px solid #D9D9D9; */
+
+    .reservation-category-icon{
+        width: 24px;
+        height: 24px;
+    }
+
+    .reservation-category{
+        font-weight: 600;
+        font-size: 16px;
+        margin-left: 10px;
+        font-family: 'DM Sans';
+        color: #111;
+    }
+}
+
+.pay {
+    margin-top: 200px;
+}
+
+.reservation-content-container{
+    padding:20px;
+    background-color: white;
+}
+
+.bottom-btn {
+    padding: 15px !important;
+}
+
+.reservation-program-container{
+    position: relative;
+
+    .reservation-program-selected{
+        display: flex;
+        padding: 10px 20px 10px 20px;
+        border: 1px solid #E9EAEC;
+        border-radius: 15px;
+        justify-content: space-between;
+        color: #1C1C1C;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .reservation-program-contents{
+        padding: 10px 20px 10px 20px;
+        border: 1px solid #E9EAEC;
+        border-radius: 15px;
+        .dash{
+            border-top: 1px dotted #E9EAEC;
+            margin: 10px 0;
+        }
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .reservation-category{
+        font-weight: 600;
+        font-size: 16px;
+        margin: 30px 0px 30px 0px;
+    }
+}
+
+.reservation-time-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.reservation-time-content{
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 12px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;  
+    border: 1px solid #E9EAEC;
+    cursor: pointer;
+    background: white;
+    color: #515151;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.reservation-time-selected{
+    background-color: #FFFDAC; /* 선택된 시간에 노란색 배경 적용 */
+    border: 1px solid #E9EAEC;
+}
+
+.reservation-time-disabled{
+    color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+}
+.reservation-pay-active{
+    padding: 15px;
+    border: 1px solid #FFEB54;
+    border-radius: 15px;
+    background: #FFEB54;
+    color: #515151;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'DM Sans';
+    width: 100%;
+}
+
+
+.reservation-pay-inactive{
+    padding: 15px;
+    border: 1px solid #E9EAEC;
+    border-radius: 15px;
+    background: #E9EAEC;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    font-family: 'DM Sans';
+}
+
+/* RESERVATION END */
+
+/* RESERVATION MODAL START */
+
+.btn-rong {
+    width: 160px;
+}
+
+.reservationModal-info {
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 1px
+}
+
+
+.reservaionModal-header{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.reservationModal-header1{
+    font-size: 25px;
+    color: #1C1C1C;
+    font-family: 'DM Sans';
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.reservationModal-warning{
+    font-size: 14px;
+    color: #FA0000;
+    font-family: 'DM Sans';
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.reservationModal-confirm{
+    font-family: 'DM Sans';
+    font-size: 17px;
+    font-weight: 600;
+    color: #515151;
+    background-color: #FFFDAC;
+    padding: 12px 30px;
+    border: 1px solid #E9EAEC;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.reservationModal-content{
+    display: flex;
+    margin: 10px 0px 10px 0px;
+
+    .reservationModal-title{
+        flex:3;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .reservationModal-info{
+        flex:7;
+        font-size: 16px;
+        
+    }
+}
+
+.reservationModal-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reservationModal-button {
+    font-size: 20px;
+    color: #B5B5B5;
+    background-color: #FFFFFF;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid #E9EAEC;
+    border-radius: 18px;
+    width: 47%;
+}
+
+/* RESERVATION MODAL END */
+
+
