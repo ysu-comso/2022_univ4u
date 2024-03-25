@@ -1,1 +1,1 @@
-client폴더에 npm istall 필요.
+client폴더에 npm install 필요.
